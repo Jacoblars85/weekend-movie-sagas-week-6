@@ -6,7 +6,7 @@ function Details() {
     const dispatch = useDispatch();
     const currentMovie = useSelector(store => store.currentMovie);
 
-
+    console.log('this is current current movie', currentMovie);
     const goToHome = () => {
         dispatch({
             type: 'RESET_CURENT_MOVIE',
@@ -16,16 +16,11 @@ function Details() {
 
 
     return (
-        <div>
+        <div key={currentMovie.id}>
 
-            {currentMovie.map(movie => {
-                return (
-                    <div data-testid='movieItem' key={movie.id}>
-                        <h3>{movie.title}</h3>
-                        <img src={movie.poster} alt={movie.title} />
-                    </div>
-                );
-            })}
+            <h3>{currentMovie.movie.title}</h3>
+            <img src={currentMovie.movie.poster} alt={currentMovie.movie.title} />
+
 
             <button onClick={goToHome}>back</button>
         </div>

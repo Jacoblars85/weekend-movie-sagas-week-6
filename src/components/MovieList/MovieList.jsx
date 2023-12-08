@@ -13,6 +13,7 @@ function MovieList() {
   }, []);
 
   const goToDescription = (movie) => {
+    console.log('this is movie', movie);
     dispatch({
       type: 'CLICKED_MOVIE',
       payload: {movie}
