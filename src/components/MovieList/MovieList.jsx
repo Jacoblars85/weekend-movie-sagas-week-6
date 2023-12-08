@@ -16,7 +16,7 @@ function MovieList() {
     console.log('this is movie', movie);
     dispatch({
       type: 'CLICKED_MOVIE',
-      payload: {movie}
+      payload: movie
     })
 
     history.push(`/details`)

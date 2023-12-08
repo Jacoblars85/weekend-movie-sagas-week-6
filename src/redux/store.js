@@ -47,12 +47,9 @@ const genres = (state = [], action) => {
 }
 
 // reducer to colect movie detail you clicked
-const currentMovie = (state = [], action) => {
+const currentMovie = (state = {}, action) => {
   if (action.type === 'CLICKED_MOVIE') {
     return action.payload 
-}
-if (action.type === 'RESET_CURENT_MOVIE') {
-    return [] 
 }
 return state;
 }

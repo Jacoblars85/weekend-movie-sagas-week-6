@@ -7,10 +7,9 @@ function Details() {
     const currentMovie = useSelector(store => store.currentMovie);
 
     console.log('this is current current movie', currentMovie);
+    
     const goToHome = () => {
-        dispatch({
-            type: 'RESET_CURENT_MOVIE',
-        })
+       
         history.push(`/`)
     }
 
@@ -18,8 +17,9 @@ function Details() {
     return (
         <div key={currentMovie.id}>
 
-            <h3>{currentMovie.movie.title}</h3>
-            <img src={currentMovie.movie.poster} alt={currentMovie.movie.title} />
+            <h3>{currentMovie.title}</h3>
+            <img src={currentMovie.poster} alt={currentMovie.title} />
+            <p>{currentMovie.description}</p>
 
 
             <button onClick={goToHome}>back</button>
