@@ -46,11 +46,24 @@ const genres = (state = [], action) => {
   }
 }
 
+// reducer to colect movie detail you clicked
+const currentMovie = (state = [], action) => {
+  if (action.type === 'CLICKED_MOVIE') {
+    return action.payload 
+}
+if (action.type === 'RESET_CURENT_MOVIE') {
+    return [] 
+}
+return state;
+}
+
+
 // Create one store that all components can use
 const storeInstance = createStore(
   combineReducers({
     movies,
     genres,
+    currentMovie,
   }),
   // Add sagaMiddleware to our store
   applyMiddleware(sagaMiddleware, logger),
