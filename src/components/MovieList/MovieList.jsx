@@ -27,9 +27,18 @@ function MovieList() {
       <section className="movies">
         {movies.map(movie => {
           return (
-            <div data-testid='movieItem' key={movie.id}>
+            <div data-testid='movieItem' className="aroundHeader" key={movie.id}>
+
               <h3>{movie.title}</h3>
-              <img data-testid="toDetails" onClick={() => goToDescription(movie)} src={movie.poster} alt={movie.title} />
+
+            <div className="oneMovie">
+              <img data-testid="toDetails" 
+              height={275}
+              width={190}
+              onClick={() => goToDescription(movie)} 
+              src={movie.poster} 
+              alt={movie.title} />
+</div>
             </div>
           );
         })}

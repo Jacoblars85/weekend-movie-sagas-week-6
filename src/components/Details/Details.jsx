@@ -1,5 +1,7 @@
+import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import { useSelector } from "react-redux";
 import { useHistory } from 'react-router-dom';
+import Button from '@mui/material/Button';
 
 function Details() {
     const history = useHistory()
@@ -15,10 +17,17 @@ function Details() {
     return (
         <div data-testid="movieDetails">
 
+            <h2>{currentMovie.title}</h2>
 
-            <h3>{currentMovie.title}</h3>
+            <br />
+
             <img src={currentMovie.poster} alt={currentMovie.title} />
+
+            <br />
+
             <p>{currentMovie.description}</p>
+
+            <br />
 
             {genres.map(genre => {
                 return (
@@ -28,7 +37,8 @@ function Details() {
                 );
             })}
 
-            <button data-testid="toList" onClick={goToHome}>back</button>
+            <br />
+            <KeyboardBackspaceIcon data-testid="toList" onClick={goToHome} fontSize='large'/>
         </div>
     );
 }
