@@ -13,7 +13,6 @@ function MovieList() {
   }, []);
 
   const goToDescription = (movie) => {
-    console.log('this is movie', movie);
     dispatch({
       type: 'SAGA_FETCH_GENRES',
       payload: movie

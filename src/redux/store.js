@@ -8,7 +8,6 @@ import axios from 'axios';
 function* rootSaga() {
   yield takeEvery('SAGA_FETCH_MOVIES', fetchAllMovies);
   yield takeEvery('SAGA_FETCH_GENRES', fetchTheGenre);
-
 }
 
 function* fetchAllMovies() {
@@ -69,7 +68,6 @@ const currentMovie = (state = {}, action) => {
 }
 return state;
 }
-
 
 // Create one store that all components can use
 const storeInstance = createStore(
