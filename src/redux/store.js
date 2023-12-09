@@ -6,7 +6,9 @@ import axios from 'axios';
 
 // Create the rootSaga generator function
 function* rootSaga() {
-  yield takeEvery('FETCH_MOVIES', fetchAllMovies);
+  yield takeEvery('SAGA_FETCH_MOVIES', fetchAllMovies);
+  yield takeEvery('SAGA_FETCH_GENRES', fetchTheGenre);
+
 }
 
 function* fetchAllMovies() {
@@ -20,6 +22,20 @@ function* fetchAllMovies() {
     });
   } catch (error) {
     console.log('fetchAllMovies error:', error);
+  }
+}
+
+function* fetchTheGenre(action) {
+  try {
+    // Get the genre:
+    const genreResponse = yield axios.get(`/api/genres/${action.payload.id}`);
+    // Set the value of the genre reducer:
+    yield put({
+      type: 'SET_GENRES',
+      payload: genreResponse.data
+    });
+  } catch (error) {
+    console.log('fetchTheGenre error:', error);
   }
 }
 
@@ -48,7 +64,7 @@ const genres = (state = [], action) => {
 
 // reducer to colect movie detail you clicked
 const currentMovie = (state = {}, action) => {
-  if (action.type === 'CLICKED_MOVIE') {
+  if (action.type === 'SAGA_FETCH_GENRES') {
     return action.payload 
 }
 return state;

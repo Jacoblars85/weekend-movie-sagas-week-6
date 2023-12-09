@@ -9,13 +9,13 @@ function MovieList() {
   const movies = useSelector(store => store.movies);
 
   useEffect(() => {
-    dispatch({ type: 'FETCH_MOVIES' });
+    dispatch({ type: 'SAGA_FETCH_MOVIES' });
   }, []);
 
   const goToDescription = (movie) => {
     console.log('this is movie', movie);
     dispatch({
-      type: 'CLICKED_MOVIE',
+      type: 'SAGA_FETCH_GENRES',
       payload: movie
     })
 
