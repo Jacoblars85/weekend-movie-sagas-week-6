@@ -7,7 +7,7 @@ router.get('/:id', (req, res) => {
 console.log('req.params.id', req.params.id );
 
   const query = `
-  SELECT "movies"."title", "movies"."poster", "movies"."description", "genres"."name" as "movie_genre" FROM "movies_genres"
+  SELECT "movies"."title", "genres"."name" as "movie_genre" FROM "movies_genres"
 	inner join "movies"
 	on "movies_genres"."movie_id" = "movies"."id"
 	inner join "genres"
